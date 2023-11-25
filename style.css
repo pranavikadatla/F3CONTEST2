@@ -23,10 +23,10 @@ input{
     margin:4px 0px;
 }
 #button{
-    background-color: white;
+    background-color: blue;
     padding: 2% 4%;
     border: none;
-    color: blue;
+    color: white;
 }
 #profile{
     color: blue;
@@ -42,8 +42,8 @@ input{
 
 }
 #logoutbtn{
-    color:blue;
-    background-color: white;
+    color:white;
+    background-color:blue;
     padding:10px 15px;
     border:none;
 }

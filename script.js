@@ -2,11 +2,11 @@
     const signupPage=document.getElementById("signup");
     const profilePage=document.getElementById("profile");
     const accessToken=localStorage.getItem('accessToken');
-     if(accessToken)  {
-  showProfilePage();
-     }else{
-     showSignupPage();
-    }
+//      if(accessToken)  {
+//   showProfilePage();
+//      }else{
+//      showSignupPage();
+//     }
 const signupForm=document.getElementById("signupform")
  signupForm.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -15,29 +15,39 @@ const signupForm=document.getElementById("signupform")
          const confirmpassword= document.getElementById("confirmpassword").value;
         
         if(password===confirmpassword){
-         console.log("hello");
         const user={
             userName:document.getElementById("username").value,
             email:document.getElementById("email").value,
             password:document.getElementById("password").value,
             confirmpassword: document.getElementById("confirmpassword").value,
         };
-        console.log(user);
+        
         localStorage.setItem('accessToken',accessToken);
           localStorage.setItem('user',JSON.stringify(user));
-          showProfilePage();
+          if(accessToken)  {
+           showProfilePage();
+               }else{
+               showSignupPage();
+              }
     }
      else{
         showErrorMessage("password and confirm password do not match.");
     }
 
      });
+
+     const successMessage=document.getElementById("successheading");
+    function showSuccessfullMessage(message){
+      successMessage.textContent=message;
+   
+  }
    const errorMessage=document.getElementById("errormessage");
       function showErrorMessage(message){
         errorMessage.textContent=message;
          errorMessage.style.color='red';
 
      }
+
 
      const logoutButton=document.getElementById("logoutbtn");
      logoutButton.addEventListener("click",()=>{
@@ -55,6 +65,8 @@ const signupForm=document.getElementById("signupform")
         displayUserProfile();
      }
      function displayUserProfile(){
+     showSuccessfullMessage("Signup Successful!");
+
         const user=JSON.parse(localStorage.getItem('user')); 
         const userNameDisplay=document.getElementById("usernamedisplay") ;
         const emailIdDisplay=document.getElementById("emailiddisplay");
