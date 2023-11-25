@@ -1,6 +1,7 @@
      document.addEventListener('DOMContentLoaded',()=>{
     const signupPage=document.getElementById("signup");
     const profilePage=document.getElementById("profile");
+    const successPage=document.getElementById("successheading")
     const accessToken=localStorage.getItem('accessToken');
 //      if(accessToken)  {
 //   showProfilePage();
@@ -15,6 +16,7 @@ const signupForm=document.getElementById("signupform")
          const confirmpassword= document.getElementById("confirmpassword").value;
         
         if(password===confirmpassword){
+         
         const user={
             userName:document.getElementById("username").value,
             email:document.getElementById("email").value,
@@ -22,23 +24,29 @@ const signupForm=document.getElementById("signupform")
             confirmpassword: document.getElementById("confirmpassword").value,
         };
         
+        
         localStorage.setItem('accessToken',accessToken);
           localStorage.setItem('user',JSON.stringify(user));
           if(accessToken)  {
-           showProfilePage();
+            
+            showProfilePage();
                }else{
                showSignupPage();
               }
     }
      else{
-        showErrorMessage("password and confirm password do not match.");
+        showErrorMessage("Error :All Fields are Mandatory!");
+
     }
 
      });
 
-     const successMessage=document.getElementById("successheading");
-    function showSuccessfullMessage(message){
-      successMessage.textContent=message;
+   
+    function showSuccessPage(){
+      
+      signupPage.style.display= 'none';
+      profilePage.style.display='none';
+      successPage.style.display='block';
    
   }
    const errorMessage=document.getElementById("errormessage");
@@ -52,20 +60,22 @@ const signupForm=document.getElementById("signupform")
      const logoutButton=document.getElementById("logoutbtn");
      logoutButton.addEventListener("click",()=>{
 
-        localStorage.clear();
+        
         showSignupPage();
+        localStorage.remove();
      });
      function showSignupPage(){
         signupPage.style.display= 'block';
+        errorMessage.textContent=' ';
         profilePage.style.display='none';
      }
      function showProfilePage(){
+      showSuccessPage();
         signupPage.style.display= 'none';
         profilePage.style.display='block';
         displayUserProfile();
      }
      function displayUserProfile(){
-     showSuccessfullMessage("Signup Successful!");
 
         const user=JSON.parse(localStorage.getItem('user')); 
         const userNameDisplay=document.getElementById("usernamedisplay") ;

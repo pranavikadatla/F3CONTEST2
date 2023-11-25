@@ -47,3 +47,13 @@ input{
     padding:10px 15px;
     border:none;
 }
+#successheading{
+    display:none;
+    height: 40%;
+    width:30p%;
+    margin:10% 30%;
+    color:white;
+    background-color: blue;
+    text-align: center;
+    font-size: 32px;
+}
