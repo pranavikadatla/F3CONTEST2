@@ -2,11 +2,11 @@
     const signupPage=document.getElementById("signup");
     const profilePage=document.getElementById("profile");
     const accessToken=localStorage.getItem('accessToken');
-   //   if(accessToken){
-   //       showProfilePage();
-   //   }else{
-   //   showSignupPage();
-   //  }
+     if(accessToken)  {
+  showProfilePage();
+     }else{
+     showSignupPage();
+    }
 const signupForm=document.getElementById("signupform")
  signupForm.addEventListener('submit',(e)=>{
     e.preventDefault();
