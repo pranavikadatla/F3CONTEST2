@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div id="signup">
+    <p>Welcome Back 👋</p>
+    <h2><b>Sign up to your account</b></h2>
+    <form id="signupform">
+        <label for="username" >Your Name</label> <br>
+        <input type ="text" id="username" placeholder="acciostudent" required > <br>
+        <label for="email" >Your Email</label><br>
+        <input type ="email" id="email" placeholder="acciostudent@gmail.com" required><br>
+        <label for="password" >Password</label><br>
+        <input type ="password" id="password" name="password" required><br>
+        <label for="confirmpassword" >Confirm Password</label><br>
+        <input type ="password" id="confirmpassword" name="confirmpassword" required><br>
+        <div id="errormessage"></div> <br>
+        <button type="submit" id="button">CONTINUE</button><br>
+
+    </form>
+<center>Don't have an account <a  href="#">signup</a></center>
+</div>
+<div id="profile">
+    <h2>Signup Successful!</h2>
+    <div id="details">
+        <h3>Profile</h3>
+        <img  height=20% width=20%  src="./profile.jpg"/>
+        <p id="usernamedisplay"> </p>
+         <p id="emailiddisplay"> </p>
+        <p id="tokendisplay"> </p>
+        <p id="passworddisplay"> </p>
+      <button id="logoutbtn">LOGOUT</button>
+    </div>
+
+</div>
+    <script src="./script.js"></script>
+
+</body>
+</html>
